@@ -80,12 +80,10 @@ EOT
 
   validation {
     condition = alltrue(flatten([
-      for k in var.grants :flatten([
-        for v in k["object_type"] :contains([
-          "database", "schema", "table", "sequence", "function", "procedure", "routine", "foreign_data_wrapper",
-          "foreign_server", "column",
-        ], v)
-      ])
+      for k in var.grants : contains([
+        "database", "schema", "table", "sequence", "function", "procedure", "routine", "foreign_data_wrapper",
+        "foreign_server", "column",
+      ], k["object_type"])
     ]))
     error_message = "object_type value must be database, schema, table, sequence, function, procedure, routine, foreign_data_wrapper, foreign_server, or column."
   }
