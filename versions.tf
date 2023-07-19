@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    azuredevops = {
-      source  = "microsoft/azuredevops"
-      version = "0.6.0"
+    postgresql = {
+      source  = "cyrilgdn/postgresql"
+      version = "1.19.0"
     }
   }
 }
