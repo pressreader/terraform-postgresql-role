@@ -25,13 +25,14 @@ module "role" {
   # Defaults to []
   grants = [
     {
-      database          = "Name of database" # Defaults to null
-      object_type       = "table"            # Defaults to null
-      privileges        = ["ALL"]            # Defaults to null
-      schema            = "public"           # Defaults to null
-      objects           = []                 # Defaults to []
-      columns           = []                 # Defaults to []
-      with_grant_option = false              # Defaults to false
+      description       = "GRANT ALL ON ALL TABLES"
+      database          = "Name of database"
+      object_type       = "table"
+      privileges        = ["ALL"]
+      schema            = "public" # Defaults to null
+      objects           = []       # Defaults to []
+      columns           = []       # Defaults to []
+      with_grant_option = false    # Defaults to false
     }
   ]
 }

@@ -17,11 +17,7 @@ resource "postgresql_role" "main" {
 
 resource "postgresql_grant" "database_object_type_privileges" {
   for_each = {
-    for v in var.grants :
-    length(v["objects"]) == 0 ?
-    "${v["database"]} | ${v["object_type"]} | ${join(", ", v["privileges"])}" :
-    "${v["database"]} | ${v["object_type"]} | ${join(", ", v["objects"])} | ${join(", ", v["privileges"])}"
-    => v
+    for v in var.grants : v.description => v
   }
 
   role = postgresql_role.main.name
