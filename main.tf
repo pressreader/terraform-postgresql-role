@@ -31,3 +31,20 @@ resource "postgresql_grant" "database_object_type_privileges" {
   columns           = each.value.columns
   with_grant_option = each.value.with_grant_option
 }
+
+resource "postgresql_default_privileges" "default_privileges" {
+  for_each = {
+    for v in var.default_grants : v.description => v
+  }
+
+
+  role  = postgresql_role.main.name
+  owner = postgresql_role.main.name
+
+  database    = each.value.database
+  object_type = each.value.object_type
+  privileges  = each.value.privileges
+  schema      = each.value.schema
+
+  with_grant_option = each.value.with_grant_option
+}
