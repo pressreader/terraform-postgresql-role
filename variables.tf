@@ -134,7 +134,5 @@ EOT
     ]))
     error_message = "object_type value must be table, sequence, function, type, schema."
   }
-
-
 }
 
