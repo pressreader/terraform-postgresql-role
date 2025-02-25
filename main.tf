@@ -39,7 +39,7 @@ resource "postgresql_default_privileges" "default_privileges" {
 
 
   role  = postgresql_role.main.name
-  owner = postgresql_role.main.name
+  owner = each.value.owner
 
   database    = each.value.database
   object_type = each.value.object_type

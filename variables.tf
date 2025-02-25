@@ -119,6 +119,7 @@ EOT
     database          = string
     object_type       = string
     privileges        = list(string)
+    owner             = string
     schema            = optional(string)
     objects           = optional(list(string), [])
     columns           = optional(list(string), [])
